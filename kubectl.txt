@@ -1,0 +1,54 @@
+
+Docker Commands:
+>>cd C:\Users\bvn_p\Downloads\demo
+run the docker build by executing the Dockerfile commands
+>>docker build -t springio/gs-spring-boot-docker .
+Then run the docker commands
+>>docker container run -p 8081:8080 -d -it --name democontainer1 -t springio/gs-spring-boot-docker
+
+To see the docker containers running
+>>docker ps
+http://localhost:8081/hello
+to stop the docker containers
+>>docker stop <NAME of the container>
+
+
+>>kubectl create -f create-demo-pod.yml
+To check the POD status 
+>>kubectl get pods
+To see the docker error
+>>kubectl describe pod demo-pod1
+
+To delete a pod from kubernetes-dashboard
+>>kubectl delete pod demo-pod
+
+>>kubectl logs demo-pod1
+------------------------------------------------------------
+
+
+docker container run -p 8081:8080 -name democontainer -t gs-spring-boot-docker
+docker container run -p 8081:8080 -d -it --name democontainer -t gs-spring-boot-docker
+
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta1/aio/deploy/recommended.yaml
+
+kubectl describe secret -n kube-system
+
+http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#!/login .
+
+kubectl create clusterrolebinding dashboard-admin-sa --clusterrole=cluster-admin --serviceaccount=default:dashboard-admin-sa
+
+
+kubectl describe secret -n kube-system
+kubectl -n kube-system get secrets
+
+kubectl -n kube-system describe secret bootstrap-token-abcdef
+
+kubectl describe secret bootstrap-token-abcdef
+
+kubectl apply -f C:/Users/bvn_p/admin-user.yml
+kubectl create clusterrolebinding dashboard-admin-sa --clusterrole=cluster-admin --serviceaccount=default:dashboard-admin-sa
+
+
+kubectl -o json get secret bootstrap-token-abcdef | jq -r '.data.token' | base64 -d
+
+
